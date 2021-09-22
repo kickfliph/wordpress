@@ -61,9 +61,17 @@ tar -xzvf /tmp/wordpress.tar.gz -C /var/www/html
 chown -R www-data.www-data /var/www/html/wordpress
 chmod -R 755 /var/www/html/wordpress
 
-cp ./wordpress /etc/nginx/sites-available/
+cp ./wordpress.conf /etc/nginx/sites-available/
+sed -i "s/my_domain_name/$my_hostname/g" /etc/nginx/sites-available/wordpress.conf
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
+sed -i "s/my_domain_name/$my_hostname/g" /etc/nginx/sites-available/wordpress.conf
+ln -s /etc/nginx/sites-available/wordpress.conf /etc/nginx/sites-enabled/
 nginx -t
 
 systemctl reload nginx
+echo ""
+echo "Please keep secure this information ")
+echo "Data base name: " dbname
+echo "Data base user: " users 
+echo "Data base password: " shadows
