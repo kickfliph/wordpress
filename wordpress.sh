@@ -2,15 +2,16 @@
 
 apt update
 apt upgrade -y
-apt-get install nginx
+apt-get install nginx -y
 systemctl start nginx
 systemctl enable nginx
 systemctl status nginx
-apt-get install php php-mysql php-fpm php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip mariadb-server mariadb-client
+apt-get install php php-mysql php-fpm php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip mariadb-server mariadb-client dnsutils-y
 systemctl start mariadb
 
+echo ""
 echo "================================================================================================================================"
-echo " "
+echo ""
 
 while [[ $valve != 1 ]]
 do
@@ -23,7 +24,7 @@ fi
 done
 valve=0
 
-
+echo ""
 echo "======================================================================================================================================"
 echo ""
 while [[ $valve != 1 ]]
@@ -71,7 +72,7 @@ nginx -t
 
 systemctl reload nginx
 echo ""
-echo "Please keep secure this information ")
+echo "Please keep secure this information"
 echo "Data base name: " dbname
 echo "Data base user: " users 
 echo "Data base password: " shadows
