@@ -6,7 +6,7 @@ apt-get install nginx -y
 systemctl start nginx
 systemctl enable nginx
 systemctl status nginx
-apt-get install php php-mysql php-fpm php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip mariadb-server mariadb-client dnsutils-y
+apt install php php-mysql php-fpm php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip mariadb-server mariadb-client dnsutils -y
 systemctl start mariadb
 
 echo ""
@@ -73,6 +73,6 @@ nginx -t
 systemctl reload nginx
 echo ""
 echo "Please keep secure this information"
-echo "Data base name: " dbname
-echo "Data base user: " users 
-echo "Data base password: " shadows
+echo "Data base name: " $dbname
+echo "Data base user: " $users 
+echo "Data base password: " $shadows
